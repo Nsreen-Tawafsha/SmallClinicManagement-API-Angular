@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel="stylesheet" href="patient-edit.component.css">
+</head>
+
+<body>
+
+    <form [formGroup]="editPatientForm" autocomplete="off" *ngIf="patientService.formData">
+        <input type="hidden" [ngModel]="patient.Id" name="Id">
+        <div class=" row ">
+            <div class="col-col-10">
+                <div class="form-group">
+                    <label for="FirstName">First Name</label>
+                    <input type="text" class="form-control" formControlName="FirstName" id="FirstName" name="FirstName" required>
+                    <span *ngIf="!editPatientForm.get('FirstName')?.valid && editPatientForm.get('FirstName')?.touched" class="alert-danger">First Name is required</span>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="LastName">Last Name</label>
+                    <input type="text" class="form-control" formControlName="LastName" id="LastName" name="LastName" required>
+                    <span *ngIf="!editPatientForm.get('LastName')?.valid && editPatientForm.get('LastName')?.touched" class="alert-danger">Last Name is required</span>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="Birthday">Birthday</label>
+                    <input type="date" class="form-control" formControlName="Birthday" id="Birthday" name="Birthday" max="new Date()">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="Gender">Gender</label>
+                    <div class="form-group">
+                        <select class="form-control" formControlName="Gender" id="Gender" name="Gender" required>
+                            <option value=null>-Select-</option>
+                            <option value="male">Male</option>
+                            <option value="female">Female</option>
+                        </select>
+                    </div>
+                    <span *ngIf="!editPatientForm.get('Gender')?.valid && editPatientForm.get('Gender')?.touched" class="alert-danger">Gender is required</span>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="PhoneNumber">Phone Number</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">#</div>
+                        </div>
+                        <input type="number" class="form-control" formControlName="PhoneNumber" id="PhoneNumber" name="PhoneNumber" required>
+                    </div>
+                    <span *ngIf="!editPatientForm.get('PhoneNumber')?.valid && editPatientForm.get('PhoneNumber')?.touched" class="alert-danger">Phone Number is required</span>
+                </div>
+
+            </div>
+
+            <div class="col-col-10">
+                <div class="form-group">
+                    <label for="Email">  Email </label>
+                    <input type="email" class="form-control" id="Email" name="Email" formControlName="Email">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="Address"> Address</label>
+                    <input type="address" class="form-control" formControlName="Address" id="Address" name="Address">
+                </div>
+
+
+                <div class="form-group">
+                    <label for="RegistrationDate"> Registration Date </label>
+                    <input type="date" class="form-control" id="RegistrationDate" name="RegistrationDate" required>
+                    <span *ngIf="!editPatientForm.get( 'RegistrationDate')?.valid && editPatientForm.get( 'RegistrationDate')?.touched " class="alert-danger ">Registration Date is required</span>
+                </div>
+
+                <div class="form-group ">
+                    <label for="SSN "> SSN</label>
+                    <div class="input-group ">
+                        <div class="input-group-prepend ">
+                            <div class="input-group-text ">#</div>
+                        </div>
+                        <input type="number " class="form-control " id="SSN" name="SSN">
+                    </div>
+                </div>
+
+
+                <div class="form-group " id="info-container ">
+                    <label for="Country "> Country </label>
+                    <select class="form-control " id="Country" name="Country">
+                    <option *ngFor="let c of countryList " value="{{c.name}} ">{{c.name}}</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+        <br>
+        <div class="form-group ">
+            <button type="button " class="btn btn-dark " (click)="onUpdate() "><i class="fa fa-database " aria-hidden="true "> </i>&nbsp;&nbsp;Submit Patient</button>&nbsp;&nbsp;
+            <button type="button " class="btn btn-outline-dark ml-1 " (click)="onCloseForm()" style="background-color: cornflowerblue;"><i class="fa fa-close " ></i> Close </button>
+        </div>
+
+    </form>
+
+
+</body>
+
+</html>

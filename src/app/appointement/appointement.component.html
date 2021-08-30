@@ -1,0 +1,28 @@
+<div>
+    <h3 *ngIf="appointementService.appointementList">Total Appointments: {{appointementService.appointementList.length}}</h3>
+</div>
+<table class="table">
+    <thead class="thead-light" style=" background-color: #D7E1E9 ">
+        <th style=" padding-bottom: 10px ; padding-left: 5px;">Doctor Name</th>
+        <th style=" padding-bottom: 10px ; padding-left: 5px;">Patient Name</th>
+        <th style=" padding-bottom: 10px ; padding-left: 5px;">Reservation Date</th>
+        <th>
+            <a class=" btn btn-sm btn-success text-white btn-primary " (click)="AddNewAppointement()" style=" background-color: green; "><i class="fa fa-plus " ></i>&nbsp;&nbsp;Add New Appointement </a> &nbsp;&nbsp;
+            <button class="btn btn-danger btn-sm " (click)="onClearAppointements() " style=" background-color: red; ">Clear All Appointements</button>
+        </th>
+    </thead>
+    <tbody>
+        <tr *ngIf="appointementService.appointementList.length==0 ">
+            <td class="font-italic text-center " colspan="4">
+                There's no Appointements
+            </td>
+        </tr>
+        <tr *ngFor="let appItem of appointementService.appointementList ">
+            <td>{{appItem.DoctorName}}</td>
+            <td>{{appItem.PatientName}}</td>
+            <td>{{appItem.Reservation}}</td>
+            <td>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row">
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="''" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{exact:true}"><i class="fa fa-home" aria-hidden="true"></i>&nbsp;&nbsp;Home</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="'/patient'" [routerLinkActive]="'active'">Patients</a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" [routerLink]="'/doctor'" [routerLinkActive]="'active'">Doctors</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="jumbotron jumbotron-fluid">
+        <h1 class="display-4 text-center "> <img src="/assets/img/heartbeat1.png " alt=" " class="s">&nbsp;&nbsp;Clinic Management System</h1>
+        <div class="container ">
+            <div class="row ">
+                <div class="col-md-10 offset-md-1 ">
+                    <router-outlet></router-outlet>
+                </div>
+            </div>
+        </div>
+    </div>

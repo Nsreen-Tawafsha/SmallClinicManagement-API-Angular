@@ -1,0 +1,32 @@
+<div>
+    <h3 *ngIf="doctorService.doctorList">Total Doctors: {{doctorService.doctorList.length}}</h3>
+</div>
+<table class="table">
+    <thead class="thead-light" style=" background-color: #D7E1E9 ">
+        <th style=" padding-bottom: 10px ; padding-left: 5px;">FirstName</th>
+        <th style=" padding-bottom: 10px ; padding-left: 5px;">LastName</th>
+        <th style=" padding-bottom: 10px ; padding-left: 5px;">PhoneNumber</th>
+        <th style=" padding-bottom: 10px ; padding-left: 5px;">Country</th>
+        <th>
+            <a class=" btn btn-sm btn-success text-white btn-primary " (click)="AddNewDoctor()" style=" background-color: green; "><i class="fa fa-plus " ></i>&nbsp;&nbsp;Add New Dcotor </a>&nbsp;&nbsp;
+            <a class="btn btn-danger btn-sm " (click)="onClearDoctors() " style=" background-color: red; ">Clear All Doctors</a>
+        </th>
+    </thead>
+    <tbody>
+        <tr *ngIf="doctorService.doctorList.length==0 ">
+            <td class="font-italic text-center " colspan="5">
+                There's no Doctors
+            </td>
+        </tr>
+        <tr *ngFor="let doctorItem of doctorService.doctorList ">
+            <td>{{doctorItem.FirstName}}</td>
+            <td>{{doctorItem.LastName}}</td>
+            <td>{{doctorItem.PhoneNumber}}</td>
+            <td>{{doctorItem.Country}}</td>
+            <td>
+                <a class=" btn btn-sm btn-info text-white btn-primary " style=" background-color: #64C7FF; margin-left: 90px;" [routerLink]="['/doctor-detail', doctorItem.Id]" (click)="getDetail(doctorItem)">
+                    <i class="fa fa-pencil "></i>&nbsp;&nbsp;More Info</a>
+            </td>
+        </tr>
+    </tbody>
+</table>

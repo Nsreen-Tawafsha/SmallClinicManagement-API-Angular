@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="appointement-create.component.css">
+</head>
+
+<body>
+
+    <form [formGroup]="loginForm" autocomplete="off" *ngIf="appointementService.formData">
+        <div class=" row ">
+            <div class="col-col-10">
+                <div class="form-group">
+                    <label for="DoctorName">Doctor Name</label>
+                    <select class="form-control" formControlName="DoctorID">
+                    <option value="0">-Select</option>
+                    <option *ngFor="let d of this.doctorService.doctorList" value="{{d.Id}}">{{d.FirstName}} {{d.LastName}}</option>
+                    </select>
+                    <span *ngIf="!loginForm.get('DoctorID')?.valid && loginForm.get('DoctorID')?.touched" class="alert-danger">Doctor Name is required</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="PatientName">Patient Name</label>
+                    <select class="form-control" formControlName="PatientID">
+                    <option value="0">-Select</option>
+                    <option *ngFor="let p of this.patientService.patientList" value="{{p.Id}}">{{p.FirstName}} {{p.LastName}}</option>
+                    </select>
+                    <span *ngIf="!loginForm.get('PatientID')?.valid && loginForm.get('PatientID')?.touched" class="alert-danger">Patient Name is required</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="Reservation">Reservation Date</label>
+                    <input type="date" class="form-control" formControlName="Reservation" min="new Date()">
+                </div>
+
+
+
+            </div>
+
+            <div class="form-group" style="padding-top: 10px;">
+                <button type="button" class="btn btn-dark" (click)="onSubmit()"><i class="fa fa-database" aria-hidden="true"> </i>&nbsp;&nbsp;Add Appointement</button> &nbsp;&nbsp;
+                <button type="button" class="btn btn-dark" (click)="onCloseForm() " style="background-color: cornflowerblue;"><i class="fa fa-close" ></i> Close </button>
+            </div>
+        </div>
+    </form>
+
+</body>
+
+</html>

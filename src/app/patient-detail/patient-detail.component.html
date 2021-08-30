@@ -1,0 +1,79 @@
+<div *ngIf="patient" class="row">
+    <div class="col col-2">
+        <label>First Name: </label>
+    </div>
+    <div class="col col-10">
+        <p>{{patient.FirstName}}</p>
+    </div>
+
+    <div class="col col-2">
+        <label>Last Name: </label>
+    </div>
+    <div class="col col-10">
+        <p>{{patient.LastName}}</p>
+    </div>
+
+    <div class="col col-2">
+        <label>Birthday: </label>
+    </div>
+    <div class="col col-10">
+        <p>{{patient.Birthday}}</p>
+    </div>
+
+    <div class="col col-2">
+        <label>Gender: </label>
+    </div>
+    <div class="col col-10">
+        <p>{{patient.Gender}}</p>
+    </div>
+
+    <div class="col col-2">
+        <label>Phone Number: </label>
+    </div>
+    <div class="col col-10">
+        <p>{{patient.PhoneNumber}}</p>
+    </div>
+
+    <div class="col col-2">
+        <label>Email: </label>
+    </div>
+    <div class="col col-10">
+        <p>{{patient.Email}}</p>
+    </div>
+
+
+    <div class="col col-2">
+        <label>Address: </label>
+    </div>
+    <div class="col col-10">
+        <p>{{patient.Address}}</p>
+    </div>
+
+    <div class="col col-2">
+        <label>Registration Date: </label>
+    </div>
+    <div class="col col-10">
+        <p>{{patient.RegistrationDate}}</p>
+    </div>
+
+    <div class="col col-2">
+        <label>SSN: </label>
+    </div>
+    <div class="col col-10">
+        <p>{{patient.SSN}}</p>
+    </div>
+
+    <div class="col col-2">
+        <label>Country: </label>
+    </div>
+    <div class="col col-10">
+        <p>{{patient.Country}}</p>
+    </div>
+
+</div>
+<br>
+<button type="button" class="btn btn-outline-dark ml-1" (click)="onCloseForm() "><i class="fa fa-close" ></i> Close </button> &nbsp;&nbsp;
+<a class="btn btn-primary bt-sm" (click)="onEdit(patient)" [routerLink]="['/patient-edit', patient.Id]">Edit</a>&nbsp;&nbsp;
+<a class="btn btn-primary bt-sm" (click)="onDeletePatient(patient)" [routerLink]="['/patient-delete', patient.Id]" style="background-color: red;"><i class="fa fa-minus " ></i>&nbsp;&nbsp;Delete</a>
+<br/>
+<br/>

@@ -1,0 +1,71 @@
+<div *ngIf="doctor" class="row">
+    <div class="col col-2">
+        <label>First Name</label>
+    </div>
+    <div class="col col-10">
+        <p>{{doctor.FirstName}}</p>
+    </div>
+
+    <div class="col col-2">
+        <label>Last Name</label>
+    </div>
+    <div class="col col-10">
+        <p>{{doctor.LastName}}</p>
+    </div>
+
+    <div class="col col-2">
+        <label>Address</label>
+    </div>
+    <div class="col col-10">
+        <p>{{doctor.Address}}</p>
+    </div>
+
+    <div class="col col-2">
+        <label>Notes</label>
+    </div>
+    <div class="col col-10">
+        <p>{{doctor.Notes}}</p>
+    </div>
+
+    <div class="col col-2">
+        <label>Monthly Salary</label>
+    </div>
+    <div class="col col-10">
+        <p>{{doctor.MonthlySalary}}</p>
+    </div>
+
+    <div class="col col-2">
+        <label>Phone Number</label>
+    </div>
+    <div class="col col-10">
+        <p>{{doctor.PhoneNumber}}</p>
+    </div>
+
+    <div class="col col-2">
+        <label>IBAN</label>
+    </div>
+    <div class="col col-10">
+        <p>{{doctor.IBAN}}</p>
+    </div>
+
+    <div class="col col-2">
+        <label>Email</label>
+    </div>
+    <div class="col col-10">
+        <p>{{doctor.Email}}</p>
+    </div>
+
+    <div class="col col-2">
+        <label>Country</label>
+    </div>
+    <div class="col col-10">
+        <p>{{doctor.Country}}</p>
+    </div>
+
+</div>
+<br>
+<button type="button" class="btn btn-outline-dark ml-1" (click)="onCloseForm() "><i class="fa fa-close" ></i> Close </button>&nbsp;&nbsp;
+<a class="btn btn-primary bt-sm" (click)="onEdit(doctor)" [routerLink]="['/doctor-edit', doctor.Id]">Edit</a>&nbsp;&nbsp;
+<a class="btn btn-primary bt-sm" (click)="onDeleteDoctor(doctor)" [routerLink]="['/doctor-delete', doctor.Id]" style="background-color: red;"><i class="fa fa-minus " ></i>&nbsp;&nbsp;Delete</a>
+<br/>
+<br/>

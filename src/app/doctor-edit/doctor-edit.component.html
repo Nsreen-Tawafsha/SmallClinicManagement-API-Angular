@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="doctor-edit.component.css">
+</head>
+
+<body>
+
+    <form [formGroup]="editDoctorForm" autocomplete="off" *ngIf="doctorService.formData">
+        <div class=" row ">
+            <div class="col-col-10">
+                <div class="form-group">
+                    <label for="FirstName">First Name</label>
+                    <input type="text" class="form-control" formControlName="FirstName" id="FirstName" name="FirstName" required>
+                    <span *ngIf="!editDoctorForm.get('FirstName')?.valid && editDoctorForm.get('FirstName')?.touched" class="alert-danger">First Name is required</span>
+                </div>
+
+
+                <div class="form-group">
+                    <label for="LastName">Last Name</label>
+                    <input type="text" class="form-control" formControlName="LastName" id="LastName" name="LastName" required>
+                    <span *ngIf="!editDoctorForm.get('LastName')?.valid && editDoctorForm.get('LastName')?.touched" class="alert-danger">Last Name is required</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="Address"> Address</label>
+                    <input type="address" class="form-control" formControlName="Address" id="Address" name="Address">
+                </div>
+
+                <div class="form-group">
+                    <label for="Notes">Notes</label>
+                    <input type="text" class="form-control" formControlName="Notes" id="Notes" name="Notes">
+                </div>
+
+                <div class="form-group">
+                    <label for="MonthlySalary">MonthlySalary</label>
+                    <input type="number" class="form-control" formControlName="MonthlySalary" id="MonthlySalary" name="MonthlySalary">
+                </div>
+
+            </div>
+
+            <div class="col-col-10">
+
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for="PhoneNumber">Phone Number</label>
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <div class="input-group-text">#</div>
+                            </div>
+                            <input type="number" class="form-control" formControlName="PhoneNumber" id="PhoneNumber" name="PhoneNumber" required>
+                        </div>
+                        <span *ngIf="!editDoctorForm.get('PhoneNumber')?.valid && editDoctorForm.get('PhoneNumber')?.touched" class="alert-danger">Phone Number is required</span>
+                    </div>
+
+                    <label for="IBAN"> IBAN</label>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text">#</div>
+                        </div>
+                        <input type="number" class="form-control" formControlName="IBAN" id="IBAN" name="IBAN">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="Email">  Email </label>
+                    <input type="email" class="form-control" formControlName="Email" id="Email" name="Email">
+                </div>
+
+
+                <div class="form-group" id="info-container">
+                    <label for="Country"> Country </label>
+                    <select class="form-control" formControlName="Country" id="Country" name="Country">
+                    <option *ngFor="let c of countryList" value="{{c.name}}">{{c.name}}</option>
+                    </select>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <button type="button" class="btn btn-dark" (click)="onUpdate()"><i class="fa fa-database" aria-hidden="true"> </i>&nbsp;&nbsp;Submit Doctor</button>&nbsp;&nbsp;
+            <button type="button" class="btn btn-outline-dark ml-1" (click)="onCloseForm() " style="background-color: cornflowerblue;"><i class="fa fa-close" ></i> Close </button>
+        </div>
+
+    </form>
+
+
+</body>
+
+</html>
