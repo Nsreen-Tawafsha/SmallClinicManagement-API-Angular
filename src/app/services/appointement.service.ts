@@ -34,7 +34,7 @@ export class AppointementService {
   getAppontementList() {
     return this.http.get(environment.apiURL + '/Appointments');
   }
-
+  //tests
   submitAppointement(appointment: Appointement) {
     console.log(appointment);
     this.http.post((environment.apiURL + '/Appontments'), appointment,
