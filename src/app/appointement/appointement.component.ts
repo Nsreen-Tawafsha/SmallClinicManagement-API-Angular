@@ -32,32 +32,33 @@ export class AppointementComponent implements OnInit {
       console.log(this.appointementService.appointementList);
     }
     )
-    for(let i=0 ; i<this.appointementService.appointementList.length ; i++){
-      for(let j=0; j<this.patientAll.length; j++){
-        if(this.patientAll[j].Id ==this.appointementService.appointementList[i].PatientID){
+    for (let i = 0; i < this.appointementService.appointementList.length; i++) {
+      for (let j = 0; j < this.patientAll.length; j++) {
+        if (this.patientAll[j].Id == this.appointementService.appointementList[i].PatientID) {
           this.appointementService.appointementList[i].PatientName = this.patientAll[j].FirstName + " " + this.patientAll[j].LastName;
-        }      
+        }
       }
     }
     console.log(this.appointementService.appointementList)
 
     for (let i = 0; i < this.appointementService.appointementList.length; i++) {
       for (let j = 0; j < this.doctorAll.length; j++) {
-        if (this.doctorAll[j].Id == this.appointementService.appointementList[i].DoctorID){
+        if (this.doctorAll[j].Id == this.appointementService.appointementList[i].DoctorID) {
           this.appointementService.appointementList[i].DoctorName = this.doctorAll[j].FirstName + " " + this.doctorAll[j].LastName;
           console.log(this.appointementService.appointementList[i].DoctorName);
         }
-          
+
       }
     }
   }
+
 
   AddNewAppointement() {
     this.router.navigate(['/appointement-create'])
   }
 
   onClearAppointements() {
-   // this.appointementService;
+    // this.appointementService;
   }
 
 }
